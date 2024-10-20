@@ -42,7 +42,11 @@ class Section {
         console.log(`${book.title} - ${book.isAvailable ? 'Available' : 'Not Available'}`);
       });
     }
-  
+    calculateTotalBooksAvailable() {
+        return this.getAvailableBooks(); // Reuse the method to calculate available books
+      }
+    }
+    
 
 //patron class
 class Patron {
