@@ -93,3 +93,43 @@ class VIPPatron extends Patron {
       }
     }
   }
+
+
+  //create and manage sections and patrons
+// Create sections
+const fiction = new Section("Fiction");
+const science = new Section("Science");
+
+// Create books
+const book1 = new Book("1984", "George Orwell", "1234567890");
+const book2 = new Book("Brave New World", "Aldous Huxley", "0987654321");
+const book3 = new Book("The Selfish Gene", "Richard Dawkins", "1122334455");
+
+// Add books to sections
+fiction.addBook(book1);
+fiction.addBook(book2);
+science.addBook(book3);
+
+// Create patrons
+const regularPatron = new Patron("John Doe");
+const vipPatron = new VIPPatron("Jane Smith");
+
+// Regular patron tries to borrow a book
+regularPatron.borrowBook(book1); // John Doe borrows 1984
+
+// VIP patron tries to borrow a book (has priority)
+vipPatron.borrowBook(book1); // Jane Smith tries to borrow 1984 but it's not available
+
+// Return the book
+regularPatron.returnBook(book1); // John Doe returns 1984
+
+// VIP patron tries to borrow again
+vipPatron.borrowBook(book1); // Jane Smith borrows 1984
+
+// List books and their availability
+fiction.listBooks();
+science.listBooks();
+
+// Calculate total available books in each section
+console.log(`Total available books in Fiction: ${fiction.calculateTotalBooksAvailable()}`);
+console.log(`Total available books in Science: ${science.calculateTotalBooksAvailable()}`);
