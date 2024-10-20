@@ -18,7 +18,7 @@ class Book {
 
   // Setter for availability
   set isAvailable(status) {
-    this._isAvailable = status;
+    this._isAvailable = 0;
   }
 }
 
