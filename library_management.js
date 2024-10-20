@@ -72,3 +72,20 @@ class Patron {
       }
     }
   }
+
+  //Vippatron class (inherits from patron)
+class VIPPatron extends Patron {
+    constructor(name) {
+      super(name);
+      this.priority = true; // VIP patrons have priority
+    }
+  
+    // Override borrowBook method
+    borrowBook(book) {
+      if (book.isAvailable) {
+        super.borrowBook(book); // Use the parent class method
+      } else {
+        console.log(`${this.name} has VIP priority but "${book.title}" is not available.`);
+      }
+    }
+  }
