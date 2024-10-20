@@ -10,3 +10,15 @@ class Book {
     getDetails() {
       return `Title: ${this.title}, Author: ${this.author}, ISBN: ${this.ISBN}`;
     }
+
+    // Getter for availability
+  get isAvailable() {
+    return this._isAvailable;
+  }
+
+  // Setter for availability
+  set isAvailable(status) {
+    this._isAvailable = status;
+  }
+}
+
