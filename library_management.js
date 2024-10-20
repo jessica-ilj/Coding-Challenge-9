@@ -22,3 +22,24 @@ class Book {
   }
 }
 
+//section class
+class Section {
+    constructor(name) {
+      this.name = name;
+      this.books = [];
+    }
+  
+    addBook(book) {
+      this.books.push(book);  //Adds a Book object to the books array.
+    }
+  
+    getAvailableBooks() {
+      return this.books.filter(book => book.isAvailable).length; // Returns count of available books
+    }
+  
+    listBooks() {
+      this.books.forEach(book => {
+        console.log(`${book.title} - ${book.isAvailable ? 'Available' : 'Not Available'}`);
+      });
+    }
+  
